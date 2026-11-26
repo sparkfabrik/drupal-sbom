@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file, following [Keep
 
 ## [Unreleased]
 
+### Fixed
+
+- Allow `symfony/yaml` 8, which Drupal 12 requires.
+
 ## [0.1.0] - 2026-11-26
 
 ### Added
