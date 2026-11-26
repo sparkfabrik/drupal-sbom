@@ -1,0 +1,10 @@
+parameters:
+  level: 6
+  paths:
+    - src
+    - tests
+    - bin/drupal-sbom
+  ignoreErrors:
+    # Tests call PHPUnit assertions through $this.
+    - identifier: staticMethod.dynamicCall
+      path: tests/*

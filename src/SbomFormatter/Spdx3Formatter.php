@@ -18,8 +18,6 @@ use Sparkfabrik\DrupalSbom\Model\SeveritySystem;
 use Sparkfabrik\DrupalSbom\Model\Snapshot;
 use Sparkfabrik\DrupalSbom\Model\VexAssertion;
 use Sparkfabrik\DrupalSbom\Model\VexSelection;
-use Sparkfabrik\DrupalSbom\SbomFormatter\LossReport;
-use Sparkfabrik\DrupalSbom\SbomFormatter\SbomFormatterInterface;
 
 /**
  * Formats a snapshot as an SPDX 3.0.1 JSON-LD document.

@@ -3,32 +3,73 @@
   "description": "Builds a software bill of materials (SBOM) of a Drupal codebase, as SPDX 3.0.1, without running its code.",
   "type": "library",
   "license": "GPL-2.0-or-later",
-  "keywords": ["drupal", "sbom", "spdx", "security", "supply-chain"],
+  "keywords": [
+    "drupal",
+    "sbom",
+    "spdx",
+    "security",
+    "supply-chain"
+  ],
   "homepage": "https://github.com/sparkfabrik/drupal-sbom",
   "authors": [
-    {"name": "Paolo Mainardi", "email": "paolo.mainardi@sparkfabrik.com", "role": "Maintainer"},
-    {"name": "Marco Primitivo", "email": "marco.primitivo@sparkfabrik.com", "role": "Maintainer"}
+    {
+      "name": "Paolo Mainardi",
+      "email": "paolo.mainardi@sparkfabrik.com",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Marco Primitivo",
+      "email": "marco.primitivo@sparkfabrik.com",
+      "role": "Maintainer"
+    }
   ],
   "require": {
     "php": ">=8.1",
     "composer-runtime-api": "^2.2",
     "composer/spdx-licenses": "^1.5",
-    "psr/log": "^1.1 || ^2 || ^3",
+    "psr/log": "^2 || ^3",
     "symfony/yaml": "^6.4 || ^7.0"
   },
   "require-dev": {
+    "drupal/coder": "^8.3",
     "opis/json-schema": "^2.4",
+    "phpstan/extension-installer": "^1.4",
+    "phpstan/phpstan": "^2.1",
+    "phpstan/phpstan-phpunit": "^2.0",
+    "phpstan/phpstan-strict-rules": "^2.0",
     "phpunit/phpunit": "^10.5"
   },
   "autoload": {
-    "psr-4": {"Sparkfabrik\\DrupalSbom\\": "src/"}
+    "psr-4": {
+      "Sparkfabrik\\DrupalSbom\\": "src/"
+    }
   },
   "autoload-dev": {
-    "psr-4": {"Sparkfabrik\\DrupalSbom\\Tests\\": "tests/"}
+    "psr-4": {
+      "Sparkfabrik\\DrupalSbom\\Tests\\": "tests/"
+    }
   },
-  "bin": ["bin/drupal-sbom"],
+  "bin": [
+    "bin/drupal-sbom"
+  ],
   "config": {
-    "platform": {"php": "8.1.0"},
-    "sort-packages": true
+    "platform": {
+      "php": "8.1.0"
+    },
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "phpstan": "phpstan analyse --memory-limit=1G",
+    "phpcs": "phpcs",
+    "qa": [
+      "@phpcs",
+      "@phpstan",
+      "@test"
+    ]
   }
 }

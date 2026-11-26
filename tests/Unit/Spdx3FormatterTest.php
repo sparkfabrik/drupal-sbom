@@ -7,7 +7,6 @@ namespace Sparkfabrik\DrupalSbom\Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Sparkfabrik\DrupalSbom\Scan\ScanCommand;
 use Sparkfabrik\DrupalSbom\Inventory\InstalledSelection;
-use Sparkfabrik\DrupalSbom\Inventory\CollectorRunner;
 use Sparkfabrik\DrupalSbom\Model\Advisory;
 use Sparkfabrik\DrupalSbom\Model\AnalysisRun;
 use Sparkfabrik\DrupalSbom\Model\Finding;
@@ -311,7 +310,15 @@ final class Spdx3FormatterTest extends TestCase {
   public function testScannedDocumentMatchesSchema(): void {
     $output = tempnam(sys_get_temp_dir(), 'drupal-sbom');
     $stderr = fopen('php://memory', 'w+');
-    $this->assertContains(ScanCommand::run(['--root', (string) realpath(__DIR__ . '/../fixtures/projects/scan'), '--skip', 'php', '--output', $output], STDOUT, $stderr), [ScanCommand::OK, ScanCommand::PARTIAL]);
+    $arguments = [
+      '--root',
+      (string) realpath(__DIR__ . '/../fixtures/projects/scan'),
+      '--skip',
+      'php',
+      '--output',
+      $output,
+    ];
+    $this->assertContains(ScanCommand::run($arguments, STDOUT, $stderr), [ScanCommand::OK, ScanCommand::PARTIAL]);
     $document = (string) file_get_contents($output);
     unlink($output);
     $this->assertValidDocument($document);

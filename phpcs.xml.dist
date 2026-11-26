@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="drupal-sbom">
+  <description>Drupal coding standards, as in DruBOM.</description>
+  <file>src</file>
+  <file>tests</file>
+  <file>bin/drupal-sbom</file>
+  <exclude-pattern>tests/fixtures/*</exclude-pattern>
+  <arg name="extensions" value="php"/>
+  <rule ref="Drupal"/>
+</ruleset>
