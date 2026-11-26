@@ -53,8 +53,14 @@ Both a scan and DruBOM describe package metadata. Neither proves that the files 
 
 ```shell
 composer install
-vendor/bin/phpunit
+composer qa
 ```
+
+`composer qa` runs the code style check (Drupal coding standards), PHPStan and the tests, as CI does on PHP 8.1 to 8.4.
+
+## Releases
+
+Add the version's section to `CHANGELOG.md`, then push a tag such as `0.1.0`. The release workflow publishes the GitHub release with that section as its notes.
 
 ## Maintainers
 

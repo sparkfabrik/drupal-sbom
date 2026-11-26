@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sparkfabrik\DrupalSbom\Inventory;
 
-use Sparkfabrik\DrupalSbom\Inventory\LicenseClassifier;
 use Sparkfabrik\DrupalSbom\Model\CollectorStatus;
 use Sparkfabrik\DrupalSbom\Model\Confidence;
 use Sparkfabrik\DrupalSbom\Model\ContextKind;

@@ -10,7 +10,7 @@ namespace Sparkfabrik\DrupalSbom\Inventory;
  * The Drubom module adapts Drupal's library discovery to it; outside a site
  * the collector reads the *.libraries.yml files instead.
  */
-interface LibraryDiscovery {
+interface LibraryDiscoveryInterface {
 
   /**
    * Returns the libraries of an extension, keyed by library name.

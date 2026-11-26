@@ -18,7 +18,6 @@ use Sparkfabrik\DrupalSbom\Model\Package;
 use Sparkfabrik\DrupalSbom\Model\Presence;
 use Sparkfabrik\DrupalSbom\Model\Scope;
 use Sparkfabrik\DrupalSbom\Model\Snapshot;
-use Sparkfabrik\DrupalSbom\Plugin\AdvisoryProvider\OsvProvider;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
@@ -276,7 +275,6 @@ final class NpmCollectorTest extends TestCase {
     $this->assertSame(['web/core/package-lock.json', 'web/modules/contrib/tool/package-lock.json'], $excluded);
   }
 
-
   /**
    * Both PnP markers withhold absence and execute-path suggestions.
    */
@@ -287,7 +285,6 @@ final class NpmCollectorTest extends TestCase {
       $this->assertSame(Presence::Unknown, $occurrence->presence);
     }
   }
-
 
   /**
    * Malformed graphs make coverage partial rather than complete and empty.

@@ -6,7 +6,7 @@ namespace Sparkfabrik\DrupalSbom\Inventory\Collector;
 
 use Sparkfabrik\DrupalSbom\Util\InvalidYamlException;
 use Sparkfabrik\DrupalSbom\Util\Yaml;
-use Sparkfabrik\DrupalSbom\Inventory\LibraryDiscovery;
+use Sparkfabrik\DrupalSbom\Inventory\LibraryDiscoveryInterface;
 use Sparkfabrik\DrupalSbom\Inventory\CollectorInterface;
 use Sparkfabrik\DrupalSbom\Inventory\InventoryBuilder;
 use Sparkfabrik\DrupalSbom\Inventory\LicenseClassifier;
@@ -47,11 +47,11 @@ final class DrupalLibraryCollector implements CollectorInterface {
   /**
    * Constructs a DrupalLibraryCollector.
    *
-   * @param \Sparkfabrik\DrupalSbom\Inventory\LibraryDiscovery|null $libraryDiscovery
+   * @param \Sparkfabrik\DrupalSbom\Inventory\LibraryDiscoveryInterface|null $libraryDiscovery
    *   The library discovery; NULL outside the site.
    */
   public function __construct(
-    private readonly ?LibraryDiscovery $libraryDiscovery = NULL,
+    private readonly ?LibraryDiscoveryInterface $libraryDiscovery = NULL,
   ) {}
 
   /**
@@ -152,7 +152,7 @@ final class DrupalLibraryCollector implements CollectorInterface {
     $version = is_scalar($definition['version'] ?? NULL) ? (string) $definition['version'] : NULL;
     // "VERSION" stands for the core version, which says nothing about a
     // third-party library; discovery has already replaced it.
-    if ($version === NULL || $version === '' || $version === 'VERSION' || ($discovered && $version === \Drupal::VERSION)) {
+    if ($version === NULL || $version === '' || $version === 'VERSION' || ($discovered && class_exists('Drupal') && $version === constant('Drupal::VERSION'))) {
       $version = NULL;
       $builder->addGap(new Gap(GapKind::UnknownVersion, sprintf('Library %s declares no version of its own.', $name), subject: $id));
     }
