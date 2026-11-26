@@ -15,6 +15,10 @@ interface LibraryDiscoveryInterface {
   /**
    * Returns the libraries of an extension, keyed by library name.
    *
+   * A library without a version of its own must keep "VERSION" or no
+   * version: Drupal's discovery replaces "VERSION" with the core version,
+   * which an adapter has to put back, as it says nothing about the library.
+   *
    * @return array<string, array<mixed>>
    *   The library definitions, as Drupal's library discovery returns them.
    */

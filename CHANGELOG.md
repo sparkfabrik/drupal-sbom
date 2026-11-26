@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file, following [Keep
 
 ## [Unreleased]
 
+### Added
+
+- The SPDX formatter and the scanner take the producer name and version, so documents name the tool that made them; the standalone scanner writes `drupal-sbom`.
+- The library collector accepts a YAML decoder, so a running site can read library files with Drupal's own decoder.
+- CI validates SPDX documents against the schema and SHACL, and tests `symfony/yaml` 7 and 8.
+
+### Changed
+
+- The SPDX formatter defaults to the `drupal-sbom` producer and IRI prefix instead of `DruBOM`; pass `DruBOM` to keep the previous output.
+- The library collector no longer reads the global `Drupal::VERSION`; discovery adapters must report libraries without their own version as `VERSION`.
+
 ## [0.1.1] - 2026-11-26
 
 ### Fixed

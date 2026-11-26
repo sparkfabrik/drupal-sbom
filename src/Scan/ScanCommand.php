@@ -50,7 +50,7 @@ final class ScanCommand {
    * The command help.
    */
   private const USAGE = <<<'TXT'
-    Usage: vendor/bin/drupal-sbom --root <project> --output <file> [options]
+    Usage: %1$s --root <project> --output <file> [options]
 
     Builds an SPDX 3.0.1 SBOM of a Drupal codebase without running its code.
 
@@ -61,7 +61,7 @@ final class ScanCommand {
                            Default: the Drupal scaffold web root, or "web".
       --include-dev        Keep packages used only for development.
       --skip <collector>   Do not run a collector; repeatable. Collectors:
-                           %s.
+                           %2$s.
       --help               Show this help.
 
     Exit codes: 0 written; 2 written, but some coverage is missing;
@@ -78,11 +78,17 @@ final class ScanCommand {
    *   Receives the help.
    * @param resource $stderr
    *   Receives the progress and the errors.
+   * @param string $producer
+   *   The tool named in the document as its creator.
+   * @param string|null $version
+   *   The producer's version; defaults to this library's installed version.
+   * @param string $command
+   *   The command name shown in the help and in the messages.
    *
    * @return int
    *   The exit code.
    */
-  public static function run(array $arguments, $stdout = STDOUT, $stderr = STDERR): int {
+  public static function run(array $arguments, $stdout = STDOUT, $stderr = STDERR, string $producer = 'drupal-sbom', ?string $version = NULL, string $command = 'drupal-sbom'): int {
     $collectors = [
       new PhpRuntimeCollector(),
       new ComposerCollector(),
@@ -95,23 +101,23 @@ final class ScanCommand {
       $options = self::options($arguments, $ids);
     }
     catch (\InvalidArgumentException $e) {
-      fwrite($stderr, $e->getMessage() . "\n\n" . sprintf(self::USAGE, implode(', ', $ids)));
+      fwrite($stderr, $e->getMessage() . "\n\n" . sprintf(self::USAGE, $command, implode(', ', $ids)));
       return self::FAILED;
     }
     if ($options['help']) {
-      fwrite($stdout, sprintf(self::USAGE, implode(', ', $ids)));
+      fwrite($stdout, sprintf(self::USAGE, $command, implode(', ', $ids)));
       return self::OK;
     }
     try {
-      $results = self::write($options, $collectors, $stderr);
+      $results = self::write($options, $collectors, $stderr, $producer, $version ?? self::version(), $command);
     }
     catch (\Throwable $e) {
-      fwrite($stderr, 'drupal-sbom: ' . $e->getMessage() . "\n");
+      fwrite($stderr, $command . ': ' . $e->getMessage() . "\n");
       return self::FAILED;
     }
     $partial = array_filter($results, static fn (CollectorResult $result) => $result->status === CollectorStatus::Partial);
     if ($partial !== []) {
-      fwrite($stderr, sprintf("drupal-sbom: incomplete coverage from %s; see the coverage gaps in the document comment.\n", implode(', ', array_map(static fn (CollectorResult $result) => $result->id, $partial))));
+      fwrite($stderr, sprintf("%s: incomplete coverage from %s; see the coverage gaps in the document comment.\n", $command, implode(', ', array_map(static fn (CollectorResult $result) => $result->id, $partial))));
       return self::PARTIAL;
     }
     return self::OK;
@@ -179,6 +185,12 @@ final class ScanCommand {
    *   The collectors, in order.
    * @param resource $stderr
    *   Receives the collector failures.
+   * @param string $producer
+   *   The tool named in the document as its creator.
+   * @param string $version
+   *   The producer's version.
+   * @param string $command
+   *   The command name that prefixes the messages.
    *
    * @return list<\Sparkfabrik\DrupalSbom\Model\CollectorResult>
    *   One result per collector.
@@ -186,7 +198,7 @@ final class ScanCommand {
    * @throws \RuntimeException
    *   When the inventory cannot be built or written.
    */
-  private static function write(array $options, array $collectors, $stderr): array {
+  private static function write(array $options, array $collectors, $stderr, string $producer, string $version, string $command): array {
     $roots = ProjectRoots::fromDirectory($options['root'], $options['web']);
     $builder = new InventoryBuilder($roots);
     // Without Composer metadata, the directory stands for the project. The
@@ -195,15 +207,17 @@ final class ScanCommand {
       $builder->read($roots->vendor . '/composer/installed.json');
       $builder->setRootPackage(new Package('application:project', Ecosystem::Application, basename($roots->application), NULL, NULL, LicenseClassifier::composer([], [])));
     }
-    $logger = new class($stderr) extends AbstractLogger {
+    $logger = new class($stderr, $command) extends AbstractLogger {
 
       /**
        * Constructs the logger.
        *
        * @param resource $stream
        *   The stream receiving the messages.
+       * @param string $command
+       *   The command name that prefixes the messages.
        */
-      public function __construct(private $stream) {}
+      public function __construct(private $stream, private string $command) {}
 
       /**
        * {@inheritdoc}
@@ -216,7 +230,7 @@ final class ScanCommand {
        *   The placeholder values.
        */
       public function log($level, string|\Stringable $message, array $context = []): void {
-        fwrite($this->stream, 'drupal-sbom: ' . strtr((string) $message, array_map(strval(...), $context)) . "\n");
+        fwrite($this->stream, $this->command . ': ' . strtr((string) $message, array_map(strval(...), $context)) . "\n");
       }
 
     };
@@ -228,7 +242,7 @@ final class ScanCommand {
     $builder->verifyInputs();
 
     $root = $builder->package((string) $builder->rootPackageId());
-    $snapshot = $builder->build((new Uuid())->generate(), new \DateTimeImmutable(), self::version(), NULL, $root === NULL ? basename($roots->application) : $root->name, $results);
+    $snapshot = $builder->build((new Uuid())->generate(), new \DateTimeImmutable(), $version, NULL, $root === NULL ? basename($roots->application) : $root->name, $results);
     if (!$options['includeDev']) {
       $snapshot = DevelopmentExclusion::apply($snapshot);
     }
@@ -240,7 +254,7 @@ final class ScanCommand {
       throw new \RuntimeException(sprintf('%s cannot be written.', $options['output']));
     }
     try {
-      (new Spdx3Formatter())->format($snapshot, NULL, $stream);
+      (new Spdx3Formatter($producer))->format($snapshot, NULL, $stream);
       fclose($stream);
       if (!rename($temporary, $options['output'])) {
         throw new \RuntimeException(sprintf('%s cannot be written.', $options['output']));
