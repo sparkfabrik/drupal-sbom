@@ -28,7 +28,7 @@
     "composer-runtime-api": "^2.2",
     "composer/spdx-licenses": "^1.5",
     "psr/log": "^2 || ^3",
-    "symfony/yaml": "^6.4 || ^7.0"
+    "symfony/yaml": "^6.4 || ^7.0 || ^8.0"
   },
   "require-dev": {
     "drupal/coder": "^8.3",
