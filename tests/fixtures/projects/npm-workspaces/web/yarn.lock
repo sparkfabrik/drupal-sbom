@@ -1,0 +1,26 @@
+__metadata:
+  version: 8
+"root@workspace:.":
+  version: "0.0.0-use.local"
+  resolution: "root@workspace:."
+  linkType: soft
+"child@workspace:packages/child":
+  version: "0.0.0-use.local"
+  resolution: "child@workspace:packages/child"
+  linkType: soft
+  dependencies:
+    prod: "npm:^1"
+    tool: "npm:^1"
+    extra: "npm:^1"
+"prod@npm:^1":
+  version: "1.0.0"
+  resolution: "prod@npm:1.0.0"
+  linkType: hard
+"tool@npm:^1":
+  version: "1.0.0"
+  resolution: "tool@npm:1.0.0"
+  linkType: hard
+"extra@npm:^1":
+  version: "1.0.0"
+  resolution: "extra@npm:1.0.0"
+  linkType: hard

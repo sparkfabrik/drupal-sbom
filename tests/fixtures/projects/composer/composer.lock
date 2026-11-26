@@ -1,0 +1,65 @@
+{
+  "packages": [
+    {
+      "name": "drupal/core",
+      "version": "11.4.9",
+      "type": "drupal-core",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "require": {
+        "php": ">=8.3",
+        "symfony/polyfill-php84": "^1.31"
+      },
+      "replace": {
+        "drupal/core-render": "self.version"
+      },
+      "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+      "name": "drupal/core-recommended",
+      "version": "11.4.9",
+      "type": "metapackage",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "require": {
+        "drupal/core": "11.4.9"
+      },
+      "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+      "name": "drupal/webform",
+      "version": "6.2.8",
+      "type": "drupal-module",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "require": {
+        "drupal/core-render": "*",
+        "acme/vanished": "^1"
+      },
+      "notification-url": "https://packages.drupal.org/8/downloads"
+    },
+    {
+      "name": "symfony/polyfill-php84",
+      "version": "v1.33.0",
+      "type": "library",
+      "license": [
+        "MIT"
+      ],
+      "notification-url": "https://packagist.org/downloads/"
+    }
+  ],
+  "packages-dev": [
+    {
+      "name": "phpunit/phpunit",
+      "version": "11.5.57",
+      "type": "library",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "notification-url": "https://packagist.org/downloads/"
+    }
+  ]
+}

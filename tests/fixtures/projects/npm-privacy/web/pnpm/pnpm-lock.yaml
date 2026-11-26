@@ -1,0 +1,18 @@
+lockfileVersion: '6.0'
+dependencies:
+  '@acme/internal':
+    specifier: ^1.0.0
+    version: 1.0.0
+  '@example/public':
+    specifier: ^1.0.0
+    version: 1.0.0
+  'example':
+    specifier: ^1.0.0
+    version: 1.0.0
+packages:
+  '/@acme/internal@1.0.0':
+    resolution: {integrity: sha512-example}
+  '/@example/public@1.0.0':
+    resolution: {integrity: sha512-example}
+  '/example@1.0.0':
+    resolution: {integrity: sha512-example}

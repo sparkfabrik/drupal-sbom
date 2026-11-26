@@ -1,0 +1,120 @@
+{
+  "packages": [
+    {
+      "name": "drupal/core",
+      "version": "11.4.9",
+      "type": "drupal-core",
+      "description": "Drupal is an open source content management platform.",
+      "homepage": "https://www.drupal.org/project/drupal",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "source": {
+        "type": "git",
+        "url": "https://github.com/drupal/core.git",
+        "reference": "a1b2c3d4"
+      },
+      "require": {
+        "php": ">=8.3",
+        "symfony/polyfill-php84": "^1.31"
+      },
+      "replace": {
+        "drupal/core-render": "self.version"
+      },
+      "install-path": "../../web/core",
+      "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+      "name": "drupal/core-recommended",
+      "version": "11.4.9",
+      "type": "metapackage",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "require": {
+        "drupal/core": "11.4.9"
+      },
+      "install-path": null,
+      "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+      "name": "drupal/webform",
+      "version": "6.2.5",
+      "type": "drupal-module",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "require": {
+        "drupal/core-render": "*",
+        "acme/vanished": "^1"
+      },
+      "extra": {
+        "patches_applied": {
+          "Fix element": "https://user:secret@patches.example.com/webform/1.patch?token=abc",
+          "Local fix": "/srv/secret/patches/webform-local.patch"
+        }
+      },
+      "install-path": "../../web/modules/contrib/webform",
+      "notification-url": "https://packages.drupal.org/8/downloads"
+    },
+    {
+      "name": "symfony/polyfill-php84",
+      "version": "v1.33.0",
+      "type": "library",
+      "license": [
+        "MIT",
+        "Apache-2.0"
+      ],
+      "install-path": "../symfony/polyfill-php84",
+      "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+      "name": "acme/gone",
+      "version": "1.0.0+build.5",
+      "type": "library",
+      "license": [
+        "proprietary"
+      ],
+      "install-path": "../acme/gone",
+      "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+      "name": "acme/impl-a",
+      "version": "1.0.0",
+      "type": "library",
+      "license": [
+        "MIT"
+      ],
+      "provide": {
+        "acme/api-impl": "1.0"
+      },
+      "install-path": null
+    },
+    {
+      "name": "acme/impl-b",
+      "version": "2.0.0",
+      "type": "library",
+      "license": [
+        "MIT"
+      ],
+      "provide": {
+        "acme/api-impl": "2.0"
+      },
+      "install-path": null
+    },
+    {
+      "name": "acme/consumer",
+      "version": "1.0.0",
+      "type": "library",
+      "license": [
+        "MIT"
+      ],
+      "require": {
+        "acme/api-impl": "^2.0"
+      },
+      "install-path": null
+    }
+  ],
+  "dev": false,
+  "dev-package-names": []
+}

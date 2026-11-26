@@ -1,0 +1,8 @@
+{
+  "name": "example",
+  "dependencies": {
+    "@acme/internal": "^1.0.0",
+    "@example/public": "^1.0.0",
+    "example": "^1.0.0"
+  }
+}

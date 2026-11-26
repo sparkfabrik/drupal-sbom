@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:drubom:schema:analysis-run:1",
+  "title": "DruBOM advisory analysis run",
+  "description": "Immutable result of matching one snapshot against advisory providers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "snapshot",
+    "startedAt",
+    "finishedAt",
+    "providers",
+    "outcomes",
+    "findings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1"
+    },
+    "id": {
+      "$ref": "#/$defs/uuid"
+    },
+    "snapshot": {
+      "$ref": "#/$defs/uuid"
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "endpoint"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/providerId"
+          },
+          "endpoint": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "outcomes": {
+      "description": "One entry per queried package and provider, including clean results.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "package",
+          "provider",
+          "status"
+        ],
+        "properties": {
+          "package": {
+            "$ref": "#/$defs/localId"
+          },
+          "provider": {
+            "$ref": "#/$defs/providerId"
+          },
+          "status": {
+            "enum": [
+              "matched",
+              "clean",
+              "no-data",
+              "unsupported",
+              "error"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "catalogs": {
+      "description": "Known exploited vulnerability catalogs checked after the advisory lookups.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "endpoint",
+          "retrievedAt"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/catalogId"
+          },
+          "endpoint": {
+            "type": "string",
+            "format": "uri"
+          },
+          "retrievedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "localId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._@/+:-]+$"
+    },
+    "providerId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "severity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "source"
+      ],
+      "properties": {
+        "system": {
+          "enum": [
+            "cvss-v2",
+            "cvss-v3",
+            "cvss-v4",
+            "drupal-risk",
+            "label"
+          ]
+        },
+        "version": {
+          "type": "string"
+        },
+        "vector": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "label": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "none",
+            "unknown"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "package",
+        "provider",
+        "advisory",
+        "affected",
+        "fixed",
+        "severities"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "package": {
+          "$ref": "#/$defs/localId"
+        },
+        "provider": {
+          "$ref": "#/$defs/providerId"
+        },
+        "advisory": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "aliases",
+            "title",
+            "url"
+          ],
+          "properties": {
+            "id": {
+              "description": "Namespaced advisory id, for example drupal:SA-CONTRIB-2026-001 or ghsa:GHSA-xxxx-xxxx-xxxx.",
+              "type": "string",
+              "pattern": "^[a-z]+:.+$"
+            },
+            "aliases": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z]+:.+$"
+              },
+              "uniqueItems": true
+            },
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            },
+            "publishedAt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "modifiedAt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "withdrawnAt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            }
+          }
+        },
+        "affected": {
+          "description": "Affected version ranges exactly as the provider states them.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "fixed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "severities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/severity"
+          }
+        },
+        "exploited": {
+          "description": "Catalog entries that list the advisory or one of its aliases as exploited.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "catalog",
+              "identifier"
+            ],
+            "properties": {
+              "catalog": {
+                "$ref": "#/$defs/catalogId"
+              },
+              "identifier": {
+                "type": "string",
+                "pattern": "^[a-z]+:.+$"
+              },
+              "since": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "ransomware": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "catalogId": {
+      "enum": [
+        "cisa_kev",
+        "euvd"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * @file
+ * Builds the SBOM of a Drupal codebase without running it.
+ */
+
+declare(strict_types=1);
+
+foreach ([__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php'] as $autoload) {
+  if (is_file($autoload)) {
+    require $autoload;
+    exit(Sparkfabrik\DrupalSbom\Scan\ScanCommand::run(array_slice($argv, 1)));
+  }
+}
+fwrite(STDERR, "drupal-sbom: run \"composer install\" first.\n");
+exit(1);

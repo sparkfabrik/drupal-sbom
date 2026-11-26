@@ -1,0 +1,34 @@
+{
+  "name": "sparkfabrik/drupal-sbom",
+  "description": "Builds a software bill of materials (SBOM) of a Drupal codebase, as SPDX 3.0.1, without running its code.",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "keywords": ["drupal", "sbom", "spdx", "security", "supply-chain"],
+  "homepage": "https://github.com/sparkfabrik/drupal-sbom",
+  "authors": [
+    {"name": "Paolo Mainardi", "email": "paolo.mainardi@sparkfabrik.com", "role": "Maintainer"},
+    {"name": "Marco Primitivo", "email": "marco.primitivo@sparkfabrik.com", "role": "Maintainer"}
+  ],
+  "require": {
+    "php": ">=8.1",
+    "composer-runtime-api": "^2.2",
+    "composer/spdx-licenses": "^1.5",
+    "psr/log": "^1.1 || ^2 || ^3",
+    "symfony/yaml": "^6.4 || ^7.0"
+  },
+  "require-dev": {
+    "opis/json-schema": "^2.4",
+    "phpunit/phpunit": "^10.5"
+  },
+  "autoload": {
+    "psr-4": {"Sparkfabrik\\DrupalSbom\\": "src/"}
+  },
+  "autoload-dev": {
+    "psr-4": {"Sparkfabrik\\DrupalSbom\\Tests\\": "tests/"}
+  },
+  "bin": ["bin/drupal-sbom"],
+  "config": {
+    "platform": {"php": "8.1.0"},
+    "sort-packages": true
+  }
+}

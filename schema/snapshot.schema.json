@@ -1,0 +1,583 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:drubom:schema:snapshot:1",
+  "title": "DruBOM inventory snapshot",
+  "description": "Format-agnostic inventory of a Drupal codebase. Formatters turn it into standard SBOM documents.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "createdAt",
+    "creator",
+    "site",
+    "roots",
+    "inputs",
+    "rootPackage",
+    "packages",
+    "occurrences",
+    "extensions",
+    "relationships",
+    "coverage"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1"
+    },
+    "id": {
+      "$ref": "#/$defs/uuid"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "creator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tool",
+        "version"
+      ],
+      "properties": {
+        "tool": {
+          "const": "drubom"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "site": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The site; a scan outside the site has no UUID and uses the project name.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "uuid": {
+          "$ref": "#/$defs/uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "roots": {
+      "description": "Inspected roots, relative to the application root.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vendor",
+        "web"
+      ],
+      "properties": {
+        "vendor": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "web": {
+          "$ref": "#/$defs/relativePath"
+        }
+      }
+    },
+    "inputs": {
+      "description": "Every metadata file read, with its digest at collection time.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "rootPackage": {
+      "$ref": "#/$defs/localId"
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/package"
+      }
+    },
+    "occurrences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/occurrence"
+      }
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/extension"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    },
+    "coverage": {
+      "$ref": "#/$defs/coverage"
+    },
+    "selection": {
+      "description": "Filter applied to a stored snapshot. Absent for a full snapshot.",
+      "enum": [
+        "installed"
+      ]
+    }
+  },
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "localId": {
+      "description": "Identifier unique inside one snapshot.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._@/+:-]+$"
+    },
+    "relativePath": {
+      "description": "Path relative to the application root, without parent segments.",
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(^|/)\\.\\.(/|$)).*$"
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "confidence"
+      ],
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "field": {
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium"
+          ]
+        }
+      }
+    },
+    "evidenceList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      },
+      "minItems": 1
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declared",
+        "classification",
+        "expression",
+        "evidence"
+      ],
+      "properties": {
+        "declared": {
+          "description": "License values exactly as the metadata declares them.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "classification": {
+          "enum": [
+            "spdx-expression",
+            "non-standard",
+            "missing"
+          ]
+        },
+        "expression": {
+          "description": "Valid SPDX license expression, only when classification is spdx-expression.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidenceList"
+        }
+      },
+      "if": {
+        "properties": {
+          "classification": {
+            "const": "spdx-expression"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "expression": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "expression": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    "package": {
+      "description": "Package identity. Physical appearances are occurrences.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "ecosystem",
+        "name",
+        "version",
+        "purl",
+        "licenses"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "ecosystem": {
+          "enum": [
+            "application",
+            "composer",
+            "npm",
+            "drupal-extension",
+            "drupal-library",
+            "php"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "description": "Null means unknown.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "purl": {
+          "description": "Package URL, only when the identity is verified.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^pkg:[a-z]+/"
+        },
+        "description": {
+          "type": "string"
+        },
+        "homepage": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceReference": {
+          "type": "string"
+        },
+        "patched": {
+          "description": "Local patches applied on top of the upstream version.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "licenses": {
+          "$ref": "#/$defs/license"
+        }
+      }
+    },
+    "occurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "package",
+        "path",
+        "presence",
+        "scopes",
+        "context",
+        "evidence"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "package": {
+          "$ref": "#/$defs/localId"
+        },
+        "path": {
+          "description": "Install location; null for a declared-only occurrence.",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/relativePath"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "presence": {
+          "enum": [
+            "installed",
+            "declared-only",
+            "unknown"
+          ]
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "production",
+              "development",
+              "optional",
+              "peer"
+            ]
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "source"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "composer-vendor",
+                "composer-lock",
+                "npm-lockfile",
+                "drupal-extension",
+                "drupal-library",
+                "php-runtime"
+              ]
+            },
+            "source": {
+              "$ref": "#/$defs/relativePath"
+            }
+          }
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidenceList"
+        }
+      }
+    },
+    "extension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "machineName",
+        "type",
+        "installed",
+        "package",
+        "path"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "machineName": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "type": {
+          "enum": [
+            "module",
+            "theme",
+            "profile"
+          ]
+        },
+        "installed": {
+          "description": "null when unknown, as in a scan outside the site.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "defaultTheme": {
+          "description": "null when unknown, as in a scan outside the site.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "adminTheme": {
+          "description": "null when unknown, as in a scan outside the site.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "baseTheme": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package": {
+          "description": "Package that ships this extension.",
+          "$ref": "#/$defs/localId"
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        }
+      },
+      "if": {
+        "properties": {
+          "type": {
+            "const": "theme"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "baseTheme": false,
+          "defaultTheme": false,
+          "adminTheme": false
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "type",
+        "to",
+        "evidence"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/localId"
+        },
+        "type": {
+          "enum": [
+            "dependsOn",
+            "contains",
+            "declares"
+          ]
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/localId"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "production",
+              "development",
+              "optional",
+              "peer"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidenceList"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collectors",
+        "gaps"
+      ],
+      "properties": {
+        "collectors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "version",
+              "status"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "complete",
+                  "partial",
+                  "failed",
+                  "skipped"
+                ]
+              }
+            }
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "detail"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "unsupported-format",
+                  "unreadable-input",
+                  "unknown-version",
+                  "unresolved-reference",
+                  "limit-exceeded",
+                  "version-conflict",
+                  "excluded"
+                ]
+              },
+              "subject": {
+                "$ref": "#/$defs/localId"
+              },
+              "path": {
+                "$ref": "#/$defs/relativePath"
+              },
+              "detail": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

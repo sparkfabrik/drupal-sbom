@@ -1,0 +1,18 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  axios:
+    specifier: ^1.6.0
+    version: 1.6.8
+
+packages:
+
+  /axios@1.6.8:
+    resolution: {integrity: sha512-aaa}
+    dependencies:
+      follow-redirects: 1.15.6
+    dev: false
+
+  /follow-redirects@1.15.6:
+    resolution: {integrity: sha512-bbb}
+    dev: false

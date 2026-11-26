@@ -1,0 +1,1 @@
+{ "name": "berry", "dependencies": { "react": "^18.2.0" }, "devDependencies": { "typescript": "^5.4.0" } }

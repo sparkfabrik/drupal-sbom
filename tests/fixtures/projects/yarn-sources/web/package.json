@@ -1,0 +1,12 @@
+{
+  "name": "example",
+  "dependencies": {
+    "example": "^1.0.0"
+  },
+  "devDependencies": {
+    "example": "https://registry.example.test/example.tgz"
+  },
+  "optionalDependencies": {
+    "example": "git+ssh://git.example.test/example.git"
+  }
+}

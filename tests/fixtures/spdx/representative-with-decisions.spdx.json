@@ -1,0 +1,806 @@
+{
+    "@context": "https://spdx.org/rdf/3.0.1/spdx-context.jsonld",
+    "@graph": [
+        {
+            "type": "CreationInfo",
+            "@id": "_:creationinfo",
+            "specVersion": "3.0.1",
+            "created": "2026-10-10T10:00:00Z",
+            "createdBy": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/drubom"
+            ],
+            "createdUsing": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom"
+            ]
+        },
+        {
+            "type": "SoftwareAgent",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/drubom",
+            "creationInfo": "_:creationinfo",
+            "name": "DruBOM"
+        },
+        {
+            "type": "Tool",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom",
+            "creationInfo": "_:creationinfo",
+            "name": "DruBOM 1.0.x-dev"
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite",
+            "creationInfo": "_:creationinfo",
+            "name": "example/site",
+            "software_primaryPurpose": "application"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/b4b435ab934dfdd270e8",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fcore",
+            "creationInfo": "_:creationinfo",
+            "name": "drupal/core",
+            "description": "Drupal is an open source content management platform.",
+            "software_packageVersion": "11.4.9",
+            "software_packageUrl": "pkg:composer/drupal/core@11.4.9",
+            "software_homePage": "https://www.drupal.org/project/drupal",
+            "software_sourceInfo": "Source reference a1b2c3d4",
+            "software_primaryPurpose": "framework"
+        },
+        {
+            "type": "simplelicensing_LicenseExpression",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/9dc7dd9c991f0419975ef6eda8f80d987e01fa18a756a10338dce24943b6602a",
+            "creationInfo": "_:creationinfo",
+            "simplelicensing_licenseExpression": "GPL-2.0-or-later"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/98201ba4b753d51d8e16",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fcore",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/9dc7dd9c991f0419975ef6eda8f80d987e01fa18a756a10338dce24943b6602a"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "creationInfo": "_:creationinfo",
+            "name": "drupal/webform",
+            "comment": "Locally patched: patches/webform-3456789.patch.",
+            "software_packageVersion": "6.2.5",
+            "software_packageUrl": "pkg:composer/drupal/webform@6.2.5",
+            "software_primaryPurpose": "library"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/83d875ab522fa7c18968",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/9dc7dd9c991f0419975ef6eda8f80d987e01fa18a756a10338dce24943b6602a"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Asymfony%2Fpolyfill-php84",
+            "creationInfo": "_:creationinfo",
+            "name": "symfony/polyfill-php84",
+            "software_packageVersion": "1.33.0",
+            "software_packageUrl": "pkg:composer/symfony/polyfill-php84@1.33.0",
+            "software_primaryPurpose": "library"
+        },
+        {
+            "type": "simplelicensing_LicenseExpression",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+            "creationInfo": "_:creationinfo",
+            "simplelicensing_licenseExpression": "MIT OR Apache-2.0"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/f9fdc60be87ab94e40d7",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Asymfony%2Fpolyfill-php84",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Aphpunit%2Fphpunit",
+            "creationInfo": "_:creationinfo",
+            "name": "phpunit/phpunit",
+            "comment": "Declared by the project metadata but not installed.",
+            "software_packageVersion": "11.5.57",
+            "software_packageUrl": "pkg:composer/phpunit/phpunit@11.5.57",
+            "software_primaryPurpose": "library"
+        },
+        {
+            "type": "simplelicensing_LicenseExpression",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/118dbcd2d5c9f9b296a9ede9fcc469c5840f7b98ad2c88461055bf2ceda38037",
+            "creationInfo": "_:creationinfo",
+            "simplelicensing_licenseExpression": "BSD-3-Clause"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/b91aa8155f273bcde8b7",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Aphpunit%2Fphpunit",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/118dbcd2d5c9f9b296a9ede9fcc469c5840f7b98ad2c88461055bf2ceda38037"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-extension%3Aexample_custom",
+            "creationInfo": "_:creationinfo",
+            "name": "example_custom",
+            "software_primaryPurpose": "module"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/bdc201826237f42e40bf",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-extension%3Aexample_custom",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:npm%3Alodash%404.17.21",
+            "creationInfo": "_:creationinfo",
+            "name": "lodash",
+            "software_packageVersion": "4.17.21",
+            "software_packageUrl": "pkg:npm/lodash@4.17.21",
+            "software_primaryPurpose": "library"
+        },
+        {
+            "type": "simplelicensing_LicenseExpression",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+            "creationInfo": "_:creationinfo",
+            "simplelicensing_licenseExpression": "MIT"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/1e12fd5d90e360609387",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:npm%3Alodash%404.17.21",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-library%3Awebform%2Fwebform.element.codemirror",
+            "creationInfo": "_:creationinfo",
+            "name": "webform/webform.element.codemirror",
+            "software_packageVersion": "5.65.12",
+            "software_primaryPurpose": "library"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/2230cd7bee9409da1bb7",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-library%3Awebform%2Fwebform.element.codemirror",
+            "relationshipType": "hasDeclaredLicense",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7"
+            ]
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform",
+            "creationInfo": "_:creationinfo",
+            "name": "webform",
+            "comment": "Drupal module, enabled.",
+            "software_packageVersion": "6.2.5",
+            "software_primaryPurpose": "module"
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform_ui",
+            "creationInfo": "_:creationinfo",
+            "name": "webform_ui",
+            "comment": "Drupal module, not enabled.",
+            "software_packageVersion": "6.2.5",
+            "software_primaryPurpose": "module"
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample_custom",
+            "creationInfo": "_:creationinfo",
+            "name": "example_custom",
+            "comment": "Drupal module, enabled.",
+            "software_primaryPurpose": "module"
+        },
+        {
+            "type": "software_Package",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample",
+            "creationInfo": "_:creationinfo",
+            "name": "example",
+            "comment": "Drupal theme, enabled. Default theme.",
+            "software_primaryPurpose": "module"
+        },
+        {
+            "type": "LifecycleScopedRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/8783364f5eb7639d5a27",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite",
+            "relationshipType": "dependsOn",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fcore",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "completeness": "incomplete",
+            "scope": "runtime"
+        },
+        {
+            "type": "LifecycleScopedRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/d1f9f439b1e9261f5fab",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite",
+            "relationshipType": "dependsOn",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Aphpunit%2Fphpunit"
+            ],
+            "completeness": "incomplete",
+            "scope": "development"
+        },
+        {
+            "type": "LifecycleScopedRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/eb57c7d4f0cc5752cf05",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fcore",
+            "relationshipType": "dependsOn",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Asymfony%2Fpolyfill-php84"
+            ],
+            "scope": "runtime"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/4a973f34e8d256323244",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "relationshipType": "contains",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform_ui"
+            ]
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/3f7dbf3e3a7b1ecf41a7",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite",
+            "relationshipType": "contains",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-extension%3Aexample_custom",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample"
+            ]
+        },
+        {
+            "type": "LifecycleScopedRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/388c083c9677f855a766",
+            "creationInfo": "_:creationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample",
+            "relationshipType": "dependsOn",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:npm%3Alodash%404.17.21"
+            ],
+            "scope": "development"
+        },
+        {
+            "type": "CreationInfo",
+            "@id": "_:analysiscreationinfo",
+            "specVersion": "3.0.1",
+            "created": "2026-10-10T10:05:03Z",
+            "createdBy": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/drubom"
+            ],
+            "createdUsing": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom"
+            ]
+        },
+        {
+            "type": "Organization",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/issuer/2c2d67f0e0efabf7",
+            "creationInfo": "_:creationinfo",
+            "name": "Example Agency",
+            "comment": "Contact: security@example.com"
+        },
+        {
+            "type": "security_Vulnerability",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-040",
+            "creationInfo": "_:analysiscreationinfo",
+            "name": "SA-CONTRIB-2026-040",
+            "summary": "Webform - Moderately critical - Cross site scripting",
+            "externalIdentifier": [
+                {
+                    "type": "ExternalIdentifier",
+                    "externalIdentifierType": "securityOther",
+                    "identifier": "SA-CONTRIB-2026-040"
+                }
+            ],
+            "externalRef": [
+                {
+                    "type": "ExternalRef",
+                    "externalRefType": "securityAdvisory",
+                    "locator": [
+                        "https://www.drupal.org/sa-contrib-2026-041"
+                    ]
+                }
+            ],
+            "security_publishedTime": "2026-09-02T16:00:00Z"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/f3819c27c746cabeb46c",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "relationshipType": "hasAssociatedVulnerability",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-040"
+            ]
+        },
+        {
+            "type": "security_CvssV3VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/2c29964532a80c7e927f",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-040",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "5.4",
+            "security_vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+            "security_severity": "medium"
+        },
+        {
+            "type": "security_CvssV4VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/a9205e54e2dfa37525f8",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-040",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "9.3",
+            "security_vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+            "security_severity": "critical"
+        },
+        {
+            "type": "CreationInfo",
+            "@id": "_:vex-00000000-0000-4000-8000-000000000000-1",
+            "specVersion": "3.0.1",
+            "created": "2026-10-01T12:00:00Z",
+            "createdBy": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/issuer/2c2d67f0e0efabf7"
+            ],
+            "createdUsing": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom"
+            ]
+        },
+        {
+            "type": "security_VexNotAffectedVulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/b7834cd608f9d3503401",
+            "creationInfo": "_:vex-00000000-0000-4000-8000-000000000000-1",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-040",
+            "relationshipType": "doesNotAffect",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite"
+            ],
+            "security_assessedElement": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "security_vexVersion": "1",
+            "security_justificationType": "vulnerableCodeNotInExecutePath",
+            "security_impactStatement": "Checked the not_affected case.",
+            "security_impactStatementTime": "2026-10-01T12:00:00Z"
+        },
+        {
+            "type": "security_Vulnerability",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-041",
+            "creationInfo": "_:analysiscreationinfo",
+            "name": "SA-CONTRIB-2026-041",
+            "summary": "Webform - Moderately critical - Cross site scripting",
+            "externalIdentifier": [
+                {
+                    "type": "ExternalIdentifier",
+                    "externalIdentifierType": "securityOther",
+                    "identifier": "SA-CONTRIB-2026-041"
+                }
+            ],
+            "externalRef": [
+                {
+                    "type": "ExternalRef",
+                    "externalRefType": "securityAdvisory",
+                    "locator": [
+                        "https://www.drupal.org/sa-contrib-2026-041"
+                    ]
+                }
+            ],
+            "security_publishedTime": "2026-09-02T16:00:00Z"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/3b291001ce614cb1a8d8",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "relationshipType": "hasAssociatedVulnerability",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-041"
+            ]
+        },
+        {
+            "type": "security_CvssV3VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/5641ede141fa19347d19",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-041",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "5.4",
+            "security_vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+            "security_severity": "medium"
+        },
+        {
+            "type": "security_CvssV4VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/3e0ae54d7413b1451252",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-041",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "9.3",
+            "security_vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+            "security_severity": "critical"
+        },
+        {
+            "type": "CreationInfo",
+            "@id": "_:vex-00000000-0000-4000-8000-000000000001-2",
+            "specVersion": "3.0.1",
+            "created": "2026-10-01T12:00:00Z",
+            "createdBy": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/issuer/2c2d67f0e0efabf7"
+            ],
+            "createdUsing": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom"
+            ]
+        },
+        {
+            "type": "security_VexAffectedVulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/473d83bdc2620f2ed97f",
+            "creationInfo": "_:vex-00000000-0000-4000-8000-000000000001-2",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-041",
+            "relationshipType": "affects",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite"
+            ],
+            "security_assessedElement": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "security_vexVersion": "2",
+            "security_actionStatement": "Update to 6.2.9.",
+            "security_actionStatementTime": "2026-10-01T12:00:00Z"
+        },
+        {
+            "type": "security_Vulnerability",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-042",
+            "creationInfo": "_:analysiscreationinfo",
+            "name": "SA-CONTRIB-2026-042",
+            "summary": "Webform - Moderately critical - Cross site scripting",
+            "externalIdentifier": [
+                {
+                    "type": "ExternalIdentifier",
+                    "externalIdentifierType": "securityOther",
+                    "identifier": "SA-CONTRIB-2026-042"
+                }
+            ],
+            "externalRef": [
+                {
+                    "type": "ExternalRef",
+                    "externalRefType": "securityAdvisory",
+                    "locator": [
+                        "https://www.drupal.org/sa-contrib-2026-041"
+                    ]
+                }
+            ],
+            "security_publishedTime": "2026-09-02T16:00:00Z"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/296232a296f70dcc7c50",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "relationshipType": "hasAssociatedVulnerability",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-042"
+            ]
+        },
+        {
+            "type": "security_CvssV3VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/6d3ebcb2bd89646f2089",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-042",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "5.4",
+            "security_vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+            "security_severity": "medium"
+        },
+        {
+            "type": "security_CvssV4VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/7301aceaf94493619e12",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-042",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "9.3",
+            "security_vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+            "security_severity": "critical"
+        },
+        {
+            "type": "CreationInfo",
+            "@id": "_:vex-00000000-0000-4000-8000-000000000002-3",
+            "specVersion": "3.0.1",
+            "created": "2026-10-01T12:00:00Z",
+            "createdBy": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/issuer/2c2d67f0e0efabf7"
+            ],
+            "createdUsing": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom"
+            ]
+        },
+        {
+            "type": "security_VexFixedVulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/c0e0f544fdc4ff7346cf",
+            "creationInfo": "_:vex-00000000-0000-4000-8000-000000000002-3",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-042",
+            "relationshipType": "fixedIn",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite"
+            ],
+            "security_assessedElement": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "security_vexVersion": "3",
+            "comment": "Checked the fixed case."
+        },
+        {
+            "type": "security_Vulnerability",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-043",
+            "creationInfo": "_:analysiscreationinfo",
+            "name": "SA-CONTRIB-2026-043",
+            "summary": "Webform - Moderately critical - Cross site scripting",
+            "externalIdentifier": [
+                {
+                    "type": "ExternalIdentifier",
+                    "externalIdentifierType": "securityOther",
+                    "identifier": "SA-CONTRIB-2026-043"
+                }
+            ],
+            "externalRef": [
+                {
+                    "type": "ExternalRef",
+                    "externalRefType": "securityAdvisory",
+                    "locator": [
+                        "https://www.drupal.org/sa-contrib-2026-041"
+                    ]
+                }
+            ],
+            "security_publishedTime": "2026-09-02T16:00:00Z"
+        },
+        {
+            "type": "Relationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/dd8b69447e2b5898d423",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "relationshipType": "hasAssociatedVulnerability",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-043"
+            ]
+        },
+        {
+            "type": "security_CvssV3VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/369e961342bab15a30b0",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-043",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "5.4",
+            "security_vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+            "security_severity": "medium"
+        },
+        {
+            "type": "security_CvssV4VulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/59c021611738c9fbebf7",
+            "creationInfo": "_:analysiscreationinfo",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-043",
+            "relationshipType": "hasAssessmentFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform"
+            ],
+            "security_score": "9.3",
+            "security_vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+            "security_severity": "critical"
+        },
+        {
+            "type": "CreationInfo",
+            "@id": "_:vex-00000000-0000-4000-8000-000000000003-4",
+            "specVersion": "3.0.1",
+            "created": "2026-10-01T12:00:00Z",
+            "createdBy": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/issuer/2c2d67f0e0efabf7"
+            ],
+            "createdUsing": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom"
+            ]
+        },
+        {
+            "type": "security_VexUnderInvestigationVulnAssessmentRelationship",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/e37c979bc66db97796dd",
+            "creationInfo": "_:vex-00000000-0000-4000-8000-000000000003-4",
+            "from": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-043",
+            "relationshipType": "underInvestigationFor",
+            "to": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite"
+            ],
+            "security_assessedElement": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+            "security_vexVersion": "4",
+            "comment": "Checked the under_investigation case."
+        },
+        {
+            "type": "software_Sbom",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:sbom/analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/8fa2f3353e24dcd9",
+            "creationInfo": "_:creationinfo",
+            "software_sbomType": [
+                "deployed",
+                "source"
+            ],
+            "rootElement": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite"
+            ],
+            "element": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/b4b435ab934dfdd270e8",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fcore",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/9dc7dd9c991f0419975ef6eda8f80d987e01fa18a756a10338dce24943b6602a",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/98201ba4b753d51d8e16",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/83d875ab522fa7c18968",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Asymfony%2Fpolyfill-php84",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/f9fdc60be87ab94e40d7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Aphpunit%2Fphpunit",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/118dbcd2d5c9f9b296a9ede9fcc469c5840f7b98ad2c88461055bf2ceda38037",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/b91aa8155f273bcde8b7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-extension%3Aexample_custom",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/bdc201826237f42e40bf",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:npm%3Alodash%404.17.21",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/1e12fd5d90e360609387",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-library%3Awebform%2Fwebform.element.codemirror",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/2230cd7bee9409da1bb7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform_ui",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample_custom",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/8783364f5eb7639d5a27",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/d1f9f439b1e9261f5fab",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/eb57c7d4f0cc5752cf05",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/4a973f34e8d256323244",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/3f7dbf3e3a7b1ecf41a7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/388c083c9677f855a766",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-040",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/f3819c27c746cabeb46c",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/2c29964532a80c7e927f",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/a9205e54e2dfa37525f8",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/b7834cd608f9d3503401",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-041",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/3b291001ce614cb1a8d8",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/5641ede141fa19347d19",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/3e0ae54d7413b1451252",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/473d83bdc2620f2ed97f",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-042",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/296232a296f70dcc7c50",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/6d3ebcb2bd89646f2089",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/7301aceaf94493619e12",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/c0e0f544fdc4ff7346cf",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-043",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/dd8b69447e2b5898d423",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/369e961342bab15a30b0",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/59c021611738c9fbebf7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/e37c979bc66db97796dd"
+            ]
+        },
+        {
+            "type": "SpdxDocument",
+            "spdxId": "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:document/analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/8fa2f3353e24dcd9",
+            "creationInfo": "_:creationinfo",
+            "name": "Example site software bill of materials",
+            "comment": "Generated by DruBOM from local metadata.\nCollector composer 1: complete.\nCollector drupal_extensions 1: complete.\nCollector npm 1: partial.\nCoverage gap (unknown-version): Custom module without a version.\nCoverage gap (unsupported-format): Yarn lockfiles are not parsed yet.\nAdvisory analysis 7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d finished 2026-10-10T10:05:03Z using drupal_org, packagist. Outcomes: 1 clean, 1 error, 1 matched.\nVulnerability decisions issued by Example Agency: 4, about this site as deployed.",
+            "profileConformance": [
+                "core",
+                "software",
+                "simpleLicensing",
+                "security"
+            ],
+            "rootElement": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:sbom/analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/8fa2f3353e24dcd9"
+            ],
+            "element": [
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/drubom",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:tool/drubom",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:application%3Aexample%2Fsite",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/b4b435ab934dfdd270e8",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fcore",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/9dc7dd9c991f0419975ef6eda8f80d987e01fa18a756a10338dce24943b6602a",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/98201ba4b753d51d8e16",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Adrupal%2Fwebform",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/83d875ab522fa7c18968",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Asymfony%2Fpolyfill-php84",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/f9fdc60be87ab94e40d7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:composer%3Aphpunit%2Fphpunit",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/118dbcd2d5c9f9b296a9ede9fcc469c5840f7b98ad2c88461055bf2ceda38037",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/b91aa8155f273bcde8b7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-extension%3Aexample_custom",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/bdc201826237f42e40bf",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:npm%3Alodash%404.17.21",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:license/e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/1e12fd5d90e360609387",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:drupal-library%3Awebform%2Fwebform.element.codemirror",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/2230cd7bee9409da1bb7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Awebform_ui",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample_custom",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:extension%3Aexample",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/8783364f5eb7639d5a27",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/d1f9f439b1e9261f5fab",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/eb57c7d4f0cc5752cf05",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/4a973f34e8d256323244",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/3f7dbf3e3a7b1ecf41a7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:relationship/388c083c9677f855a766",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:agent/issuer/2c2d67f0e0efabf7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-040",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/f3819c27c746cabeb46c",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/2c29964532a80c7e927f",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/a9205e54e2dfa37525f8",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/b7834cd608f9d3503401",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-041",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/3b291001ce614cb1a8d8",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/5641ede141fa19347d19",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/3e0ae54d7413b1451252",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/473d83bdc2620f2ed97f",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-042",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/296232a296f70dcc7c50",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/6d3ebcb2bd89646f2089",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/7301aceaf94493619e12",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/c0e0f544fdc4ff7346cf",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vulnerability/drupal%3ASA-CONTRIB-2026-043",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/dd8b69447e2b5898d423",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/369e961342bab15a30b0",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/relationship/59c021611738c9fbebf7",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/2c2d67f0e0efabf7/relationship/e37c979bc66db97796dd",
+                "urn:drubom:0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c:sbom/analysis/7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d/vex/8fa2f3353e24dcd9"
+            ]
+        }
+    ]
+}

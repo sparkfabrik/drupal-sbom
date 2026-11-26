@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1",
+  "id": "7a6b5c4d-3e2f-4a1b-8c9d-0e1f2a3b4c5d",
+  "snapshot": "0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c",
+  "startedAt": "2026-10-10T10:05:00Z",
+  "finishedAt": "2026-10-10T10:05:03Z",
+  "providers": [
+    {
+      "id": "drupal_org",
+      "endpoint": "https://packages.drupal.org/8/security-advisories"
+    },
+    {
+      "id": "packagist",
+      "endpoint": "https://packagist.org/api/security-advisories/"
+    }
+  ],
+  "outcomes": [
+    {
+      "package": "composer:drupal/core",
+      "provider": "drupal_org",
+      "status": "clean"
+    },
+    {
+      "package": "composer:drupal/webform",
+      "provider": "drupal_org",
+      "status": "matched"
+    },
+    {
+      "package": "composer:symfony/polyfill-php84",
+      "provider": "packagist",
+      "status": "error",
+      "detail": "Timed out after 10 seconds."
+    }
+  ],
+  "findings": [
+    {
+      "id": "finding:webform-sa-contrib-2026-041",
+      "package": "composer:drupal/webform",
+      "provider": "drupal_org",
+      "advisory": {
+        "id": "drupal:SA-CONTRIB-2026-041",
+        "aliases": [
+          "cve:CVE-2026-41234"
+        ],
+        "title": "Webform - Moderately critical - Cross site scripting",
+        "url": "https://www.drupal.org/sa-contrib-2026-041",
+        "publishedAt": "2026-09-02T16:00:00Z"
+      },
+      "affected": [
+        ">=6.2.0 <6.2.9"
+      ],
+      "fixed": [
+        "6.2.9"
+      ],
+      "severities": [
+        {
+          "system": "drupal-risk",
+          "vector": "AC:None/A:User/CI:Some/II:Some/E:Theoretical/TD:Default",
+          "label": "medium",
+          "source": "drupal.org"
+        },
+        {
+          "system": "cvss-v3",
+          "version": "3.1",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+          "score": 5.4,
+          "label": "medium",
+          "source": "GitHub"
+        },
+        {
+          "system": "cvss-v4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+          "score": 9.3,
+          "source": "OSV"
+        }
+      ],
+      "exploited": [
+        {
+          "catalog": "cisa_kev",
+          "identifier": "cve:CVE-2026-41234",
+          "since": "2026-09-05T00:00:00Z"
+        }
+      ]
+    }
+  ],
+  "catalogs": [
+    {
+      "id": "cisa_kev",
+      "endpoint": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "retrievedAt": "2026-09-06T10:00:00Z"
+    }
+  ]
+}

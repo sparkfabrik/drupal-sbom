@@ -1,0 +1,1 @@
+{"name": "legacy", "dependencies": {"app-lib": "^1.0.0", "local-tool": "file:../tool"}, "devDependencies": {"gulp": "^3.9.0"}, "optionalDependencies": {"fsevents": "^1.2.0"}}

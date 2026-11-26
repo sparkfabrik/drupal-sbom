@@ -1,0 +1,522 @@
+{
+  "schemaVersion": "1",
+  "id": "0b9d2c1e-6f1a-4c3b-9a8e-2d4f5e6a7b8c",
+  "createdAt": "2026-10-10T10:00:00Z",
+  "creator": {
+    "tool": "drubom",
+    "version": "1.0.x-dev"
+  },
+  "site": {
+    "uuid": "5f3c2a1b-0d9e-4f8a-b7c6-1e2d3c4b5a69",
+    "name": "Example site"
+  },
+  "roots": {
+    "vendor": "vendor",
+    "web": "web"
+  },
+  "inputs": [
+    {
+      "path": "composer.lock",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "path": "vendor/composer/installed.json",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    {
+      "path": "web/themes/custom/example/package-lock.json",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+    }
+  ],
+  "rootPackage": "application:example/site",
+  "packages": [
+    {
+      "id": "application:example/site",
+      "ecosystem": "application",
+      "name": "example/site",
+      "version": null,
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "field": "license",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "composer:drupal/core",
+      "ecosystem": "composer",
+      "name": "drupal/core",
+      "version": "11.4.9",
+      "purl": "pkg:composer/drupal/core@11.4.9",
+      "description": "Drupal is an open source content management platform.",
+      "homepage": "https://www.drupal.org/project/drupal",
+      "sourceReference": "a1b2c3d4",
+      "licenses": {
+        "declared": [
+          "GPL-2.0-or-later"
+        ],
+        "classification": "spdx-expression",
+        "expression": "GPL-2.0-or-later",
+        "evidence": [
+          {
+            "source": "vendor/composer/installed.json",
+            "field": "license",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "composer:drupal/webform",
+      "ecosystem": "composer",
+      "name": "drupal/webform",
+      "version": "6.2.5",
+      "purl": "pkg:composer/drupal/webform@6.2.5",
+      "patched": [
+        "patches/webform-3456789.patch"
+      ],
+      "licenses": {
+        "declared": [
+          "GPL-2.0-or-later"
+        ],
+        "classification": "spdx-expression",
+        "expression": "GPL-2.0-or-later",
+        "evidence": [
+          {
+            "source": "vendor/composer/installed.json",
+            "field": "license",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "composer:symfony/polyfill-php84",
+      "ecosystem": "composer",
+      "name": "symfony/polyfill-php84",
+      "version": "1.33.0",
+      "purl": "pkg:composer/symfony/polyfill-php84@1.33.0",
+      "licenses": {
+        "declared": [
+          "MIT",
+          "Apache-2.0"
+        ],
+        "classification": "spdx-expression",
+        "expression": "MIT OR Apache-2.0",
+        "evidence": [
+          {
+            "source": "composer.lock",
+            "field": "license",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "composer:phpunit/phpunit",
+      "ecosystem": "composer",
+      "name": "phpunit/phpunit",
+      "version": "11.5.57",
+      "purl": "pkg:composer/phpunit/phpunit@11.5.57",
+      "licenses": {
+        "declared": [
+          "BSD-3-Clause"
+        ],
+        "classification": "spdx-expression",
+        "expression": "BSD-3-Clause",
+        "evidence": [
+          {
+            "source": "composer.lock",
+            "field": "license",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "drupal-extension:example_custom",
+      "ecosystem": "drupal-extension",
+      "name": "example_custom",
+      "version": null,
+      "purl": null,
+      "licenses": {
+        "declared": [
+          "Proprietary"
+        ],
+        "classification": "non-standard",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "web/modules/custom/example_custom/example_custom.info.yml",
+            "confidence": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "npm:lodash@4.17.21",
+      "ecosystem": "npm",
+      "name": "lodash",
+      "version": "4.17.21",
+      "purl": "pkg:npm/lodash@4.17.21",
+      "licenses": {
+        "declared": [
+          "MIT"
+        ],
+        "classification": "spdx-expression",
+        "expression": "MIT",
+        "evidence": [
+          {
+            "source": "web/themes/custom/example/package-lock.json",
+            "field": "license",
+            "confidence": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "drupal-library:webform/webform.element.codemirror",
+      "ecosystem": "drupal-library",
+      "name": "webform/webform.element.codemirror",
+      "version": "5.65.12",
+      "purl": null,
+      "licenses": {
+        "declared": [
+          "MIT"
+        ],
+        "classification": "spdx-expression",
+        "expression": "MIT",
+        "evidence": [
+          {
+            "source": "web/modules/contrib/webform/webform.libraries.yml",
+            "field": "license",
+            "confidence": "medium"
+          }
+        ]
+      }
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "occurrence:core",
+      "package": "composer:drupal/core",
+      "path": "web/core",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "occurrence:webform",
+      "package": "composer:drupal/webform",
+      "path": "web/modules/contrib/webform",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "occurrence:polyfill",
+      "package": "composer:symfony/polyfill-php84",
+      "path": "vendor/symfony/polyfill-php84",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "occurrence:phpunit",
+      "package": "composer:phpunit/phpunit",
+      "path": null,
+      "presence": "declared-only",
+      "scopes": [
+        "development"
+      ],
+      "context": {
+        "kind": "composer-lock",
+        "source": "composer.lock"
+      },
+      "evidence": [
+        {
+          "source": "composer.lock",
+          "field": "packages-dev",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "occurrence:custom",
+      "package": "drupal-extension:example_custom",
+      "path": "web/modules/custom/example_custom",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "drupal-extension",
+        "source": "web/modules/custom/example_custom/example_custom.info.yml"
+      },
+      "evidence": [
+        {
+          "source": "web/modules/custom/example_custom/example_custom.info.yml",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "occurrence:lodash-root",
+      "package": "npm:lodash@4.17.21",
+      "path": "web/themes/custom/example/node_modules/lodash",
+      "presence": "unknown",
+      "scopes": [
+        "development"
+      ],
+      "context": {
+        "kind": "npm-lockfile",
+        "source": "web/themes/custom/example/package-lock.json"
+      },
+      "evidence": [
+        {
+          "source": "web/themes/custom/example/package-lock.json",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "occurrence:lodash-nested",
+      "package": "npm:lodash@4.17.21",
+      "path": "web/themes/custom/example/node_modules/sass-loader/node_modules/lodash",
+      "presence": "unknown",
+      "scopes": [
+        "development",
+        "optional"
+      ],
+      "context": {
+        "kind": "npm-lockfile",
+        "source": "web/themes/custom/example/package-lock.json"
+      },
+      "evidence": [
+        {
+          "source": "web/themes/custom/example/package-lock.json",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "extensions": [
+    {
+      "id": "extension:webform",
+      "machineName": "webform",
+      "type": "module",
+      "installed": true,
+      "package": "composer:drupal/webform",
+      "path": "web/modules/contrib/webform"
+    },
+    {
+      "id": "extension:webform_ui",
+      "machineName": "webform_ui",
+      "type": "module",
+      "installed": false,
+      "package": "composer:drupal/webform",
+      "path": "web/modules/contrib/webform/modules/webform_ui"
+    },
+    {
+      "id": "extension:example_custom",
+      "machineName": "example_custom",
+      "type": "module",
+      "installed": true,
+      "package": "drupal-extension:example_custom",
+      "path": "web/modules/custom/example_custom"
+    },
+    {
+      "id": "extension:example",
+      "machineName": "example",
+      "type": "theme",
+      "installed": true,
+      "package": "application:example/site",
+      "path": "web/themes/custom/example",
+      "baseTheme": "stable9",
+      "defaultTheme": true,
+      "adminTheme": false
+    }
+  ],
+  "relationships": [
+    {
+      "from": "application:example/site",
+      "type": "dependsOn",
+      "to": [
+        "composer:drupal/core",
+        "composer:drupal/webform"
+      ],
+      "scopes": [
+        "production"
+      ],
+      "evidence": [
+        {
+          "source": "composer.json",
+          "field": "require",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "from": "application:example/site",
+      "type": "dependsOn",
+      "to": [
+        "composer:phpunit/phpunit"
+      ],
+      "scopes": [
+        "development"
+      ],
+      "evidence": [
+        {
+          "source": "composer.json",
+          "field": "require-dev",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "from": "composer:drupal/core",
+      "type": "dependsOn",
+      "to": [
+        "composer:symfony/polyfill-php84"
+      ],
+      "scopes": [
+        "production"
+      ],
+      "evidence": [
+        {
+          "source": "composer.lock",
+          "field": "require",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "from": "composer:drupal/webform",
+      "type": "contains",
+      "to": [
+        "extension:webform",
+        "extension:webform_ui"
+      ],
+      "evidence": [
+        {
+          "source": "web/modules/contrib/webform/webform.info.yml",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "from": "application:example/site",
+      "type": "contains",
+      "to": [
+        "drupal-extension:example_custom",
+        "extension:example"
+      ],
+      "evidence": [
+        {
+          "source": "web/modules/custom/example_custom/example_custom.info.yml",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "from": "extension:webform",
+      "type": "declares",
+      "to": [
+        "drupal-library:webform/webform.element.codemirror"
+      ],
+      "evidence": [
+        {
+          "source": "web/modules/contrib/webform/webform.libraries.yml",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "from": "extension:example",
+      "type": "dependsOn",
+      "to": [
+        "npm:lodash@4.17.21"
+      ],
+      "scopes": [
+        "development"
+      ],
+      "evidence": [
+        {
+          "source": "web/themes/custom/example/package-lock.json",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "collectors": [
+      {
+        "id": "composer",
+        "version": "1",
+        "status": "complete"
+      },
+      {
+        "id": "drupal_extensions",
+        "version": "1",
+        "status": "complete"
+      },
+      {
+        "id": "npm",
+        "version": "1",
+        "status": "partial"
+      }
+    ],
+    "gaps": [
+      {
+        "kind": "unknown-version",
+        "subject": "drupal-extension:example_custom",
+        "detail": "Custom module without a version."
+      },
+      {
+        "kind": "unsupported-format",
+        "path": "web/themes/custom/legacy/yarn.lock",
+        "detail": "Yarn lockfiles are not parsed yet."
+      }
+    ]
+  }
+}

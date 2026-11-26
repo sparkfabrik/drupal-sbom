@@ -1,0 +1,24 @@
+{
+  "packages": [
+    {
+      "name": "drupal/core",
+      "version": "11.4.9",
+      "type": "drupal-core",
+      "license": [
+        "GPL-2.0-or-later"
+      ]
+    },
+    {
+      "name": "drupal/foo",
+      "version": "1.2.0",
+      "type": "drupal-module",
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "require": {
+        "drupal/core": "^11"
+      }
+    }
+  ],
+  "packages-dev": []
+}

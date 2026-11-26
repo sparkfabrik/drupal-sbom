@@ -1,0 +1,20 @@
+{
+  "name": "example/scan",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "drupal/core": "^11.3",
+    "drupal/foo": "^1.2"
+  },
+  "autoload": {
+    "files": [
+      "canary.php"
+    ]
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "locations": {
+        "web-root": "docroot/"
+      }
+    }
+  }
+}

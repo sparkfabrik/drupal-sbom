@@ -1,0 +1,13 @@
+# yarn lockfile v1
+"example@^1.0.0", "example@~1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/example/-/example-1.0.0.tgz"
+"example@https://registry.example.test/example.tgz":
+  version "1.0.0"
+  resolved "https://user:synthetic-secret@registry.example.test/example.tgz?token=synthetic-secret"
+"example@git+ssh://git.example.test/example.git":
+  version "1.0.0"
+  resolved "git+ssh://git.example.test/example.git#commit"
+"example@file:../legacy":
+  version "1.0.0"
+  resolved "file:../legacy"

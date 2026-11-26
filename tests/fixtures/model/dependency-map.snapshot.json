@@ -1,0 +1,653 @@
+{
+  "schemaVersion": "1",
+  "id": "ac100000-0000-4000-8000-000000000001",
+  "createdAt": "2026-10-10T10:00:00Z",
+  "creator": {
+    "tool": "drubom",
+    "version": "test"
+  },
+  "site": {
+    "uuid": "ac100000-0000-4000-8000-000000000002",
+    "name": "Synthetic site"
+  },
+  "roots": {
+    "vendor": "vendor",
+    "web": "web"
+  },
+  "inputs": [],
+  "rootPackage": "test:root",
+  "packages": [
+    {
+      "id": "test:root",
+      "ecosystem": "application",
+      "name": "synthetic/site",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:alpha",
+      "ecosystem": "composer",
+      "name": "synthetic/alpha",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:beta",
+      "ecosystem": "composer",
+      "name": "synthetic/beta",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:gamma",
+      "ecosystem": "composer",
+      "name": "synthetic/gamma",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:middle",
+      "ecosystem": "composer",
+      "name": "synthetic/middle",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:leaf",
+      "ecosystem": "composer",
+      "name": "synthetic/leaf",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:direct",
+      "ecosystem": "composer",
+      "name": "synthetic/direct",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:orphan",
+      "ecosystem": "composer",
+      "name": "synthetic/orphan",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:nested",
+      "ecosystem": "npm",
+      "name": "synthetic-nested",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:outside",
+      "ecosystem": "npm",
+      "name": "synthetic-outside",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:shared",
+      "ecosystem": "npm",
+      "name": "synthetic-shared",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:custom",
+      "ecosystem": "drupal-extension",
+      "name": "synthetic-custom",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "test:asset",
+      "ecosystem": "drupal-library",
+      "name": "synthetic-asset",
+      "version": "1.0.0",
+      "purl": null,
+      "licenses": {
+        "declared": [],
+        "classification": "missing",
+        "expression": null,
+        "evidence": [
+          {
+            "source": "composer.json",
+            "confidence": "high"
+          }
+        ]
+      }
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "test:occ-alpha",
+      "package": "test:alpha",
+      "path": "vendor/synthetic/alpha",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-beta",
+      "package": "test:beta",
+      "path": "vendor/synthetic/beta",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-gamma",
+      "package": "test:gamma",
+      "path": "vendor/synthetic/gamma",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-middle",
+      "package": "test:middle",
+      "path": "vendor/synthetic/middle",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-leaf",
+      "package": "test:leaf",
+      "path": "vendor/synthetic/leaf",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-direct",
+      "package": "test:direct",
+      "path": "vendor/synthetic/direct",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-orphan",
+      "package": "test:orphan",
+      "path": "vendor/synthetic/orphan",
+      "presence": "installed",
+      "scopes": [
+        "production"
+      ],
+      "context": {
+        "kind": "composer-vendor",
+        "source": "vendor/composer/installed.json"
+      },
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-nested7",
+      "package": "test:nested",
+      "path": null,
+      "presence": "installed",
+      "scopes": [
+        "development"
+      ],
+      "context": {
+        "kind": "npm-lockfile",
+        "source": "web/modules/contrib/alpha/package-lock.json"
+      },
+      "evidence": [
+        {
+          "source": "web/modules/contrib/alpha/themes/custom/build/package-lock.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-outside8",
+      "package": "test:outside",
+      "path": null,
+      "presence": "declared-only",
+      "scopes": [
+        "development"
+      ],
+      "context": {
+        "kind": "npm-lockfile",
+        "source": "web/modules/contrib/beta/package-lock.json"
+      },
+      "evidence": [
+        {
+          "source": "web/modules/contrib/alpha-extra/package-lock.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-shared9",
+      "package": "test:shared",
+      "path": null,
+      "presence": "declared-only",
+      "scopes": [
+        "development"
+      ],
+      "context": {
+        "kind": "npm-lockfile",
+        "source": "web/modules/contrib/alpha/package-lock.json"
+      },
+      "evidence": [
+        {
+          "source": "web/modules/contrib/alpha/package-lock.json",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "test:occ-shared10",
+      "package": "test:shared",
+      "path": null,
+      "presence": "declared-only",
+      "scopes": [
+        "development"
+      ],
+      "context": {
+        "kind": "npm-lockfile",
+        "source": "web/modules/contrib/beta/package-lock.json"
+      },
+      "evidence": [
+        {
+          "source": "package-lock.json",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "extensions": [
+    {
+      "id": "test:ext-alpha",
+      "machineName": "synthetic_alpha",
+      "type": "module",
+      "installed": true,
+      "package": "test:alpha",
+      "path": "web/modules/contrib/alpha"
+    },
+    {
+      "id": "test:ext-beta",
+      "machineName": "synthetic_beta",
+      "type": "module",
+      "installed": true,
+      "package": "test:beta",
+      "path": "web/modules/contrib/beta"
+    },
+    {
+      "id": "test:ext-gamma",
+      "machineName": "synthetic_gamma",
+      "type": "module",
+      "installed": true,
+      "package": "test:gamma",
+      "path": "web/modules/contrib/gamma"
+    },
+    {
+      "id": "test:ext-custom",
+      "machineName": "synthetic_custom",
+      "type": "theme",
+      "installed": true,
+      "package": "test:custom",
+      "path": "web/modules/contrib/alpha/themes/custom"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:alpha",
+        "test:beta",
+        "test:gamma",
+        "test:direct"
+      ],
+      "evidence": [
+        {
+          "source": "composer.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:root"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:middle",
+        "test:beta"
+      ],
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:alpha"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:middle"
+      ],
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:beta"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:middle"
+      ],
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:gamma"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:leaf"
+      ],
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:middle"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:middle"
+      ],
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:leaf"
+    },
+    {
+      "type": "declares",
+      "to": [
+        "test:asset"
+      ],
+      "evidence": [
+        {
+          "source": "vendor/composer/installed.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:ext-alpha"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:shared"
+      ],
+      "evidence": [
+        {
+          "source": "web/modules/contrib/alpha/package-lock.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:alpha"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:nested"
+      ],
+      "evidence": [
+        {
+          "source": "web/modules/contrib/alpha/package-lock.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:shared"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:shared"
+      ],
+      "evidence": [
+        {
+          "source": "web/modules/contrib/beta/package-lock.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:beta"
+    },
+    {
+      "type": "dependsOn",
+      "to": [
+        "test:outside"
+      ],
+      "evidence": [
+        {
+          "source": "web/modules/contrib/beta/package-lock.json",
+          "confidence": "high"
+        }
+      ],
+      "from": "test:shared"
+    }
+  ],
+  "coverage": {
+    "collectors": [],
+    "gaps": []
+  }
+}

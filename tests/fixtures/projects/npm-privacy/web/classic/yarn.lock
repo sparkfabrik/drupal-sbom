@@ -1,0 +1,13 @@
+# yarn lockfile v1
+
+"@acme/internal@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@acme/internal/-/internal-1.0.0.tgz"
+
+"@example/public@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@example/public/-/public-1.0.0.tgz"
+
+"example@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/example/-/example-1.0.0.tgz"

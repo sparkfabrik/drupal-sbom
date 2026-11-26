@@ -1,0 +1,54 @@
+{
+  "advisories": {
+    "drupal/webform": [
+      {
+        "advisoryId": "SA-CONTRIB-2026-041",
+        "packageName": "drupal/webform",
+        "title": "Webform - Moderately critical - Cross site scripting - SA-CONTRIB-2026-041",
+        "link": "https://www.drupal.org/sa-contrib-2026-041",
+        "cve": "CVE-2026-41234",
+        "affectedVersions": ">=6.2.0 <6.2.9",
+        "reportedAt": "2026-09-02 16:00:00",
+        "composerRepository": "http://packages.drupal.org/8/",
+        "sources": [{ "name": "Webform - Moderately critical - Cross site scripting - SA-CONTRIB-2026-041", "remoteId": "SA-CONTRIB-2026-041" }]
+      },
+      {
+        "advisoryId": "SA-CONTRIB-2020-011",
+        "packageName": "drupal/webform",
+        "title": "Webform - Critical - Remote Code Execution - SA-CONTRIB-2020-011",
+        "link": "https://www.drupal.org/sa-contrib-2020-011",
+        "cve": null,
+        "affectedVersions": "<5.11.0",
+        "reportedAt": "2020-05-06 16:43:59",
+        "composerRepository": "http://packages.drupal.org/8/",
+        "sources": [{ "name": "Webform - Critical - Remote Code Execution - SA-CONTRIB-2020-011", "remoteId": "SA-CONTRIB-2020-011" }]
+      }
+    ],
+    "drupal/core": [
+      {
+        "advisoryId": "SA-CORE-2026-004",
+        "packageName": "drupal/core",
+        "title": "Drupal core - Critical - Access bypass - SA-CORE-2026-004",
+        "link": "https://www.drupal.org/sa-core-2026-004",
+        "cve": "CVE-2026-50001",
+        "affectedVersions": ">=10.0.0 <10.5.9 || >=11.0.0 <11.3.9",
+        "reportedAt": "2026-08-12 16:00:00",
+        "composerRepository": "http://packages.drupal.org/8/",
+        "sources": [{ "name": "Drupal core - Critical - Access bypass - SA-CORE-2026-004", "remoteId": "SA-CORE-2026-004" }]
+      }
+    ],
+    "drupal/devmodule": [
+      {
+        "advisoryId": "SA-CONTRIB-2025-100",
+        "packageName": "drupal/devmodule",
+        "title": "Dev module - Less critical - Information disclosure - SA-CONTRIB-2025-100",
+        "link": "https://www.drupal.org/sa-contrib-2025-100",
+        "cve": null,
+        "affectedVersions": "<2.0.0",
+        "reportedAt": "2025-01-01 16:00:00",
+        "composerRepository": "http://packages.drupal.org/8/",
+        "sources": []
+      }
+    ]
+  }
+}

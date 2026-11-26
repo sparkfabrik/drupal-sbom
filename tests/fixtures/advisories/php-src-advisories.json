@@ -1,0 +1,318 @@
+[
+  {
+    "ghsa_id": "GHSA-w8hw-w9fx-j79w",
+    "cve_id": "CVE-2026-109618",
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+    "summary": "RCE via OOM corruption",
+    "severity": "critical",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-w8hw-w9fx-j79w"
+      },
+      {
+        "type": "CVE",
+        "value": "CVE-2026-109618"
+      }
+    ],
+    "published_at": "2026-10-21T13:34:25Z",
+    "updated_at": "2026-10-21T13:34:25Z",
+    "withdrawn_at": null,
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+        "score": 9.2
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "php-src"
+        },
+        "vulnerable_version_range": "< 8.2.35",
+        "patched_versions": "8.2.35"
+      },
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "php-src"
+        },
+        "vulnerable_version_range": "< 8.3.36",
+        "patched_versions": "8.3.36"
+      },
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "php-src"
+        },
+        "vulnerable_version_range": "< 8.4.27",
+        "patched_versions": "8.4.27"
+      },
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "php-src"
+        },
+        "vulnerable_version_range": "< 8.5.12",
+        "patched_versions": "8.5.12"
+      }
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-aaaa-bbbb-cccc",
+    "cve_id": null,
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-aaaa-bbbb-cccc",
+    "summary": "SOAP parsing flaw",
+    "severity": "medium",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-aaaa-bbbb-cccc"
+      }
+    ],
+    "published_at": "2026-09-24T10:07:25Z",
+    "updated_at": "2026-09-24T10:07:25Z",
+    "withdrawn_at": null,
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "ext-soap"
+        },
+        "vulnerable_version_range": "<8.4.30",
+        "patched_versions": "8.4.30"
+      }
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-dddd-eeee-ffff",
+    "cve_id": null,
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-dddd-eeee-ffff",
+    "summary": "Withdrawn report",
+    "severity": "high",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-dddd-eeee-ffff"
+      }
+    ],
+    "published_at": "2026-09-01T00:00:00Z",
+    "updated_at": "2026-09-02T00:00:00Z",
+    "withdrawn_at": "2026-09-02T00:00:00Z",
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": ""
+        },
+        "vulnerable_version_range": "< 9.0.0",
+        "patched_versions": "9.0.0"
+      }
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-gggg-hhhh-jjjj",
+    "cve_id": null,
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-gggg-hhhh-jjjj",
+    "summary": "OPcache flaw",
+    "severity": "low",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-gggg-hhhh-jjjj"
+      }
+    ],
+    "published_at": "2026-08-01T00:00:00Z",
+    "updated_at": "2026-08-01T00:00:00Z",
+    "withdrawn_at": null,
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "ext-opcache"
+        },
+        "vulnerable_version_range": "< 8.4.27",
+        "patched_versions": "8.4.27"
+      }
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-9fcc-425m-g385",
+    "cve_id": null,
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-9fcc-425m-g385",
+    "summary": "Multi-branch record with one exact range",
+    "severity": "high",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-9fcc-425m-g385"
+      }
+    ],
+    "published_at": "2026-06-01T00:00:00Z",
+    "updated_at": "2026-06-01T00:00:00Z",
+    "withdrawn_at": null,
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": ""
+        },
+        "vulnerable_version_range": "8.3.6",
+        "patched_versions": "8.1.29, 8.2.20, 8.3.8"
+      }
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-w8qr-v226-r27w",
+    "cve_id": null,
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-w8qr-v226-r27w",
+    "summary": "Multi-branch record with several ranges",
+    "severity": "high",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-w8qr-v226-r27w"
+      }
+    ],
+    "published_at": "2026-06-01T00:00:00Z",
+    "updated_at": "2026-06-01T00:00:00Z",
+    "withdrawn_at": null,
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": ""
+        },
+        "vulnerable_version_range": "7.3.27 - 7.3.33, 7.4.15 - 7.4.33, 8.0.2 - 8.0.30, 8.1.0 - 8.1.28, 8.2.0 - 8.2.19, 8.3.0 - 8.3.7",
+        "patched_versions": "8.1.29, 8.2.20, 8.3.8."
+      }
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-4jhr-8w89-j733",
+    "cve_id": null,
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-4jhr-8w89-j733",
+    "summary": "DOM flaw",
+    "severity": "medium",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-4jhr-8w89-j733"
+      }
+    ],
+    "published_at": "2026-06-01T00:00:00Z",
+    "updated_at": "2026-06-01T00:00:00Z",
+    "withdrawn_at": null,
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "ext-dom"
+        },
+        "vulnerable_version_range": "< 8.4.21",
+        "patched_versions": "8.4.21"
+      }
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-62xp-839h-2637",
+    "cve_id": null,
+    "html_url": "https://github.com/php/php-src/security/advisories/GHSA-62xp-839h-2637",
+    "summary": "PHP-FPM flaw",
+    "severity": "medium",
+    "identifiers": [
+      {
+        "type": "GHSA",
+        "value": "GHSA-62xp-839h-2637"
+      }
+    ],
+    "published_at": "2026-06-01T00:00:00Z",
+    "updated_at": "2026-06-01T00:00:00Z",
+    "withdrawn_at": null,
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "php",
+          "name": "PHP-FPM"
+        },
+        "vulnerable_version_range": "<8.4.26",
+        "patched_versions": "8.4.26"
+      }
+    ]
+  }
+]

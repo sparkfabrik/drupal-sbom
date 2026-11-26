@@ -1,0 +1,7 @@
+chart:
+  remote: https://github.com/example/chart
+  version: 4.1.0
+  license:
+    name: MIT
+  js:
+    js/chart.min.js: { minified: true }

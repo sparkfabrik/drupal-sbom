@@ -1,0 +1,4 @@
+name: Bar
+type: module
+description: Custom module.
+version: 1.0.0

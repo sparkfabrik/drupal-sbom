@@ -1,0 +1,14 @@
+__metadata:
+  version: 8
+
+"@acme/internal@npm:^1.0.0":
+  version: "1.0.0"
+  resolution: "@acme/internal@npm:1.0.0"
+
+"@example/public@npm:^1.0.0":
+  version: "1.0.0"
+  resolution: "@example/public@npm:1.0.0"
+
+"example@npm:^1.0.0":
+  version: "1.0.0"
+  resolution: "example@npm:1.0.0"

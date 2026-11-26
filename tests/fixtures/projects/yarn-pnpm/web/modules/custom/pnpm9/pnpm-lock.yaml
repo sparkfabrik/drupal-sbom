@@ -1,0 +1,42 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@acme/util':
+        specifier: ^2.0.0
+        version: 2.0.0
+      local-thing:
+        specifier: link:../local-thing
+        version: link:../local-thing
+    devDependencies:
+      vitest:
+        specifier: ^1.0.0
+        version: 1.6.0(@acme/util@2.0.0)
+
+packages:
+
+  '@acme/util@2.0.0':
+    resolution: {integrity: sha512-aaa}
+
+  tinypool@0.8.4:
+    resolution: {integrity: sha512-bbb}
+
+  vitest@1.6.0:
+    resolution: {integrity: sha512-ccc}
+
+snapshots:
+
+  '@acme/util@2.0.0': {}
+
+  tinypool@0.8.4: {}
+
+  vitest@1.6.0(@acme/util@2.0.0):
+    dependencies:
+      '@acme/util': 2.0.0
+      tinypool: 0.8.4
