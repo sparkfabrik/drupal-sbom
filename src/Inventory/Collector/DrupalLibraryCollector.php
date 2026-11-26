@@ -6,6 +6,7 @@ namespace Sparkfabrik\DrupalSbom\Inventory\Collector;
 
 use Sparkfabrik\DrupalSbom\Util\InvalidYamlException;
 use Sparkfabrik\DrupalSbom\Util\Yaml;
+use Sparkfabrik\DrupalSbom\Util\YamlDecoderInterface;
 use Sparkfabrik\DrupalSbom\Inventory\LibraryDiscoveryInterface;
 use Sparkfabrik\DrupalSbom\Inventory\CollectorInterface;
 use Sparkfabrik\DrupalSbom\Inventory\InventoryBuilder;
@@ -49,9 +50,13 @@ final class DrupalLibraryCollector implements CollectorInterface {
    *
    * @param \Sparkfabrik\DrupalSbom\Inventory\LibraryDiscoveryInterface|null $libraryDiscovery
    *   The library discovery; NULL outside the site.
+   * @param \Sparkfabrik\DrupalSbom\Util\YamlDecoderInterface|null $yamlDecoder
+   *   Decodes the library files; NULL uses a decoder that rejects PHP
+   *   constants.
    */
   public function __construct(
     private readonly ?LibraryDiscoveryInterface $libraryDiscovery = NULL,
+    private readonly ?YamlDecoderInterface $yamlDecoder = NULL,
   ) {}
 
   /**
@@ -100,7 +105,7 @@ final class DrupalLibraryCollector implements CollectorInterface {
       }
       else {
         try {
-          $libraries = $contents === NULL ? [] : (array) Yaml::decode($contents);
+          $libraries = $contents === NULL ? [] : (array) ($this->yamlDecoder !== NULL ? $this->yamlDecoder->decode($contents) : Yaml::decode($contents));
         }
         catch (InvalidYamlException $e) {
           $builder->addGap(new Gap(GapKind::UnreadableInput, 'Invalid YAML: ' . $e->getMessage(), path: $file));
@@ -151,8 +156,9 @@ final class DrupalLibraryCollector implements CollectorInterface {
     $evidence = [new Evidence($file, $confidence)];
     $version = is_scalar($definition['version'] ?? NULL) ? (string) $definition['version'] : NULL;
     // "VERSION" stands for the core version, which says nothing about a
-    // third-party library; discovery has already replaced it.
-    if ($version === NULL || $version === '' || $version === 'VERSION' || ($discovered && class_exists('Drupal') && $version === constant('Drupal::VERSION'))) {
+    // third-party library; a discovery adapter puts it back after Drupal
+    // replaced it (see LibraryDiscoveryInterface).
+    if ($version === NULL || $version === '' || $version === 'VERSION') {
       $version = NULL;
       $builder->addGap(new Gap(GapKind::UnknownVersion, sprintf('Library %s declares no version of its own.', $name), subject: $id));
     }

@@ -41,7 +41,9 @@ use Sparkfabrik\DrupalSbom\Scan\ScanCommand;
 $code = ScanCommand::run(['--root', $projectRoot, '--skip', 'php', '--output', $file]);
 ```
 
-The collectors, the inventory builder and the SPDX formatter are also usable on their own, from the `Sparkfabrik\DrupalSbom\Inventory` and `Sparkfabrik\DrupalSbom\SbomFormatter` namespaces.
+The collectors, the inventory builder and the SPDX formatter are also usable on their own, from the `Sparkfabrik\DrupalSbom\Inventory` and `Sparkfabrik\DrupalSbom\SbomFormatter` namespaces. A tool that embeds the library names itself in the documents it produces: `ScanCommand::run()` and `Spdx3Formatter` take the producer name, and the scanner its version and command name.
+
+Inside a running Drupal site, pass the library collector a `LibraryDiscoveryInterface` adapter over Drupal's library discovery and a `YamlDecoderInterface` over Drupal's YAML decoder. Outside a site, the collector reads `*.libraries.yml` with a decoder that rejects PHP constants (`!php/const`), and reports such a file as a coverage gap.
 
 ## What a scan does not know
 

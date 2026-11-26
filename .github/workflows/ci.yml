@@ -40,7 +40,39 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
+      # composer.json pins the platform to PHP 8.1 for local installs; the
+      # highest jobs resolve for the PHP they run on, so they also test
+      # symfony/yaml 7 and 8.
+      - if: matrix.dependencies == 'highest'
+        run: composer config --unset platform.php
       - run: composer update --no-interaction --no-progress --prefer-dist ${{ matrix.dependencies == 'lowest' && '--prefer-lowest --prefer-stable' || '' }}
+      - run: composer show symfony/yaml | grep -E '^versions'
       - run: composer test
         env:
           CI: '1'
+
+  spdx-validation:
+    name: SPDX schema and SHACL validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: composer update --no-interaction --no-progress --prefer-dist
+      - name: Scan the fixture project
+        run: |
+          status=0
+          bin/drupal-sbom --root tests/fixtures/projects/scan --skip php --output scan.spdx.json || status=$?
+          [ "$status" -eq 0 ] || [ "$status" -eq 2 ]
+      - run: pip install --quiet --disable-pip-version-check check-jsonschema==0.33.0 spdx3-validate==0.0.7
+      - name: Download the SPDX 3.0.1 schema
+        run: |
+          curl -fsSL -o spdx-json-schema.json https://spdx.org/schema/3.0.1/spdx-json-schema.json
+          echo "582c64e809d5b3ef9bd0c4de13a32391b47b0284a3e8d199569fb96f649234b1  spdx-json-schema.json" | sha256sum -c -
+      - run: check-jsonschema --schemafile spdx-json-schema.json tests/fixtures/spdx/*.spdx.json scan.spdx.json
+      - run: for document in tests/fixtures/spdx/*.spdx.json scan.spdx.json; do spdx3-validate --spdx-version 3.0.1 --json "$document"; done

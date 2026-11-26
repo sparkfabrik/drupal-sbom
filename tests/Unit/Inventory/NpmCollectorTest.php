@@ -233,10 +233,22 @@ final class NpmCollectorTest extends TestCase {
   }
 
   /**
+   * A package from an inherited private registry stays private.
+   */
+  public function testInheritedRegistry(): void {
+    $snapshot = $this->project('npm-inherited');
+    $private = $snapshot->package('npm-private:@acme/tool@1.0.0#5ccebd46e82a2d4a112e77ef9aa31c16b26ae302d07d9a154c2c416fcb60e94b');
+    $this->assertNotNull($private);
+    $this->assertNull($private->purl);
+    $this->assertSame('pkg:npm/%40acme/tool@1.0.0', $snapshot->package('npm:@acme/tool@1.0.0')?->purl);
+    $this->assertStringNotContainsString('private.test', (string) json_encode($snapshot->toArray()));
+  }
+
+  /**
    * Lockfile names that are not npm names never become a path.
    */
   public function testHostileGraphNames(): void {
-    $root = sys_get_temp_dir() . '/drubom-hostile-' . bin2hex(random_bytes(4));
+    $root = realpath(sys_get_temp_dir()) . '/drubom-hostile-' . bin2hex(random_bytes(4));
     mkdir($root . '/web/node_modules', 0777, TRUE);
     mkdir($root . '/web/outside');
     file_put_contents($root . '/web/package.json', '{"dependencies": {"../outside": "^1.0.0"}}');

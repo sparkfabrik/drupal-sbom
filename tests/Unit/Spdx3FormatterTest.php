@@ -38,6 +38,8 @@ final class Spdx3FormatterTest extends TestCase {
   /**
    * Expected documents, validated against the SPDX schema and SHACL in CI.
    *
+   * The spdx-validation job of the CI workflow runs both checks.
+   *
    * Set DRUBOM_UPDATE_SPDX_FIXTURES=1 to rewrite them after a deliberate
    * mapping change, then review the diff.
    */
@@ -347,6 +349,22 @@ final class Spdx3FormatterTest extends TestCase {
   }
 
   /**
+   * The document names the tool that produced it.
+   */
+  public function testProducerName(): void {
+    $stream = fopen('php://memory', 'w+');
+    (new Spdx3Formatter())->format($this->snapshot(), NULL, $stream);
+    rewind($stream);
+    $document = (string) stream_get_contents($stream);
+    $graph = $this->graph($document);
+    $tools = array_values(array_filter($graph, static fn (array $node): bool => ($node['type'] ?? NULL) === 'Tool'));
+    $this->assertCount(1, $tools);
+    $this->assertStringStartsWith('drupal-sbom ', $tools[0]['name']);
+    $this->assertStringStartsWith('urn:drupal-sbom:', $tools[0]['spdxId']);
+    $this->assertStringNotContainsString('DruBOM', $document);
+  }
+
+  /**
    * A stream that rejects writes fails the export.
    */
   public function testWriteFailureIsReported(): void {
@@ -405,7 +423,8 @@ final class Spdx3FormatterTest extends TestCase {
    * Returns the formatter.
    */
   private function formatter(): Spdx3Formatter {
-    return new Spdx3Formatter();
+    // The expected documents were written by DruBOM.
+    return new Spdx3Formatter('DruBOM');
   }
 
   /**

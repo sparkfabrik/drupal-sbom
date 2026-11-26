@@ -35,7 +35,7 @@ final class ScanCommandTest extends TestCase {
    */
   protected function setUp(): void {
     parent::setUp();
-    $base = sys_get_temp_dir() . '/drubom-scan-' . bin2hex(random_bytes(6));
+    $base = realpath(sys_get_temp_dir()) . '/drubom-scan-' . bin2hex(random_bytes(6));
     $this->project = $base . '/project';
     $this->outside = $base . '/outside';
     $this->copy((string) realpath(__DIR__ . '/../../fixtures/projects/scan'), $this->project);
