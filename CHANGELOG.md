@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file, following [Keep
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-26
+
 ### Added
 
 - The SPDX formatter and the scanner take the producer name and version, so documents name the tool that made them; the standalone scanner writes `drupal-sbom`.
@@ -30,6 +32,7 @@ All notable changes to this project are documented in this file, following [Keep
 - Support for PHP 8.1 and later.
 - CI with code style, static analysis and tests on PHP 8.1 to 8.4.
 
-[Unreleased]: https://github.com/sparkfabrik/drupal-sbom/compare/0.1.1...HEAD
+[Unreleased]: https://github.com/sparkfabrik/drupal-sbom/compare/0.2.0...HEAD
+[0.2.0]: https://github.com/sparkfabrik/drupal-sbom/compare/0.1.1...0.2.0
 [0.1.1]: https://github.com/sparkfabrik/drupal-sbom/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/sparkfabrik/drupal-sbom/releases/tag/0.1.0
