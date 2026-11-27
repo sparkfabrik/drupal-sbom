@@ -45,6 +45,12 @@ jobs:
       # symfony/yaml 7 and 8.
       - if: matrix.dependencies == 'highest'
         run: composer config --unset platform.php
+      # Every symfony/yaml release below 6.4 has security advisories, which
+      # Composer 2.9 and later refuse to install. Sites on Drupal 10.0 and
+      # 10.1 with an older Composer still install them, so the lowest job
+      # allows them to test the oldest supported version.
+      - if: matrix.dependencies == 'lowest'
+        run: composer config policy.advisories.block false
       - run: composer update --no-interaction --no-progress --prefer-dist ${{ matrix.dependencies == 'lowest' && '--prefer-lowest --prefer-stable' || '' }}
       - run: composer show symfony/yaml | grep -E '^versions'
       - run: composer test
