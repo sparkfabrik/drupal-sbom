@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file, following [Keep
 
 ## [Unreleased]
 
+### Fixed
+
+- Allow `symfony/yaml` 6.0 to 6.3, which Drupal 10.0 and 10.1 install.
+
 ## [0.2.0] - 2026-11-26
 
 ### Added
